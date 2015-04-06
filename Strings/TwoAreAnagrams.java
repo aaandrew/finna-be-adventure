@@ -1,4 +1,4 @@
-/* Check if two strings are anagrams
+/* Determin if two strings are anagrams
  * Ex:
  * 	anagrams("abc", "cba") -> true
  *	anagrams("abcd", "abc") -> false
