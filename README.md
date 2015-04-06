@@ -1,2 +1,6 @@
 # finna-be-adventure
-99 Problems
+Interesting programming problems :D
+(GitHub chose this name)
+
+### Contributions?
+Pull request!
