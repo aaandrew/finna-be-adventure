@@ -4,6 +4,9 @@
  * For example, given array S = {-1 2 1 -4}, and target = 1.
  * The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
  */
+
+// Time: O(n^2)
+// Space: O(1)
 public class Solution {
 	public int threeSumClosest(int[] nums, int target) {
 		Arrays.sort(nums);
