@@ -2,6 +2,8 @@
  * Count the number of substrings (non overlapping) in a string
  */
 
+// TODO: Add solution for prefix tree?
+
 // Brute force
 // Time: O(n*m) where m = length of substring
 public int countSubstrings(String string, String sub){
