@@ -40,3 +40,39 @@ public List<List<String>> groupAnagrams(String[] strs) {
 
 // Optimal Solution
 // Define a hash function such that hash(a) == hash(b) if they are anagrams
+// Time: O(n*m)
+public List<List<String>> groupAnagrams(String[] strs) {
+        Arrays.sort(strs);
+        HashMap<String, List<String>> map = new HashMap<String, List<String>>();
+        for (int i = 0; i < strs.length; i++) {
+            int[] counts = new int[26];
+            for (int j = 0; j < strs[i].length(); j++) {
+                char c = strs[i].charAt(j);
+                counts[c - 'a']++;
+            }
+            String key = hashkey(counts);
+            if(map.containsKey(key)){
+                map.get(key).add(strs[i]);
+            }else{
+                List<String> tempList = new ArrayList<String>();
+                tempList.add(strs[i]);
+                map.put(key, tempList);
+            }
+        }
+        
+        List<List<String>> list = new ArrayList<List<String>>();
+        for(String key : map.keySet()){
+            list.add(map.get(key));
+        }
+        return list;
+    }
+    
+    private String hashkey(int[] counts){
+        StringBuilder sb = new StringBuilder();
+        char c = 'a';
+        for(int i=0; i<counts.length; i++){
+            sb.append(c + String.valueOf(counts[i]));
+            c++;
+        }
+        return sb.toString();
+    }
