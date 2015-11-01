@@ -18,6 +18,7 @@ public boolean isPrime(int n){
 
 // Revised brute force
 // Time: O(sqrt(n))
+// Space: O(1)
 public boolean isPrime(int n){
 	if(n < 2) return false;
 
@@ -28,6 +29,19 @@ public boolean isPrime(int n){
 	// sqrt(n) is mid point of divisors (second half is contained in first)
 	for(int i=3; i*i <= n; i+=2){
 		if(n % i == 0) 
+			return false;
+	}
+	return true;
+}
+
+// Alternative iterative
+// Time: O(sqrt(n))
+// Space: O(1)
+public static boolean isPrime(int n){
+	if(n < 2) return false;
+	int sqrt = (int) Math.sqrt(n);
+	for(int i=2; i<=sqrt; i++){
+		if(n % i == 0)
 			return false;
 	}
 	return true;
