@@ -7,6 +7,11 @@
 // Time: O(n)
 // Space: O(1) - ascii,  O(n) - any character
 public static boolean anagrams(String a, String b){
+	if(a == null && b == null)
+		return true;
+	if(a == null && b!= null || a != null && b == null || a.length() != b.length())
+		return false;
+
 	int[] map = new int[256];
 	for(int i=0; i<a.length(); i++){
 		map[a.charAt(i)]++;
