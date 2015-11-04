@@ -9,44 +9,29 @@
  * pale, bake -> false
  */
 
-public boolean oneEditDistance(String a, String b){
-	int diff = Math.abs(a.length()-b.length());
-	if(diff > 1){
-		return false;
-	}else if(diff == 1){
-		return checkInsert(a, b);
-	}else{
-		return checkReplace(a, b);
-	}
-}
-
-private boolean checkInsert(String a, String b){
+public static boolean oneEditDistance(String a, String b){
+	if(a.length() < b.length()) return oneEditDistance(b, a);
+	int diff = Math.abs(a.length() - b.length());
+	if(diff > 1) return false;
 	int length = Math.min(a.length(), b.length());
-	int diff = 0;
-	int i = 0, j = 0;
-	while(i<a.length() && j<b.length()){
-		if(a.charAt(i) != b.charAt(i)){
-			diff++;
-			if(diff > 1) return false;
-			else if(a.length() > b.length()){
-				i++;
+	boolean oneReplace = false;
+
+	for(int i=0, j=0; i<length; i++,j++){
+		if(a.charAt(i) != b.charAt(j)){
+			if(diff == 0){
+				if(oneReplace) return false;
+				oneReplace = true;
 			}else{
-				j++;
+				return checkEquals(a, i+1, b, j);
 			}
-		}else{
-			i++; j++;
 		}
 	}
 	return true;
 }
 
-private boolean checkReplace(String a, String b){
-	int diff = 0;
-	for(int i=0; i<a.length(); i++){
-		if(a.charAt(i) != b.charAt(i)){
-			diff++;
-			if(diff > 1) return false;
-		}
+private static boolean checkEquals(String a, int i, String b, int j){
+	while(i < a.length() && j < b.length()){
+		if(a.charAt(i++) != b.charAt(j++)) return false;
 	}
 	return true;
 }
