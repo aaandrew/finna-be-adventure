@@ -1,6 +1,10 @@
 // PRAMP
 // This code is in js, convert to java later
 
+public static int[] getMinDuration(int[] timeA, int[] timeB, int duration){
+   
+}
+
 function getMinDuration(timeA, timeB, duration){
    sort(timeA, comparator); sort(timeB, comparator);
    
