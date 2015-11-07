@@ -29,19 +29,16 @@ public class AnagramOfPalindrome {
 				if(charMap[i] % 2 == 1){
 					numOddChars++;
 					if(numOddChars > 1)
-						break;
+						return false;
 				}else{
 					numEvenChars++;
 				}
 			}
 		}
-		
-		// Check if input can form a palindrome
-		if(numOddChars > 1)
-			return false;
+
 		// Ensure that string is able to form another anagram palindrome
 		// This accounts for single letter cases 'a', or single even number chars 'aba'
-		else if(numEvenChars <= 1 && isAnagram(input))
+		if(numEvenChars <= 1 && isAnagram(input))
 			return false;
 		
 		return true;
