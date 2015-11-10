@@ -1,8 +1,26 @@
 // PRAMP
 // This code is in js, convert to java later
 
-public static int[] getMinDuration(int[] timeA, int[] timeB, int duration){
-   
+A = [[4,8],[1,3],[9,10],[]]
+B = [[],[],[],[]]
+
+/* 
+ * Given two time intervals and a meeting duration time,
+ * find the first time both A and B are available. 
+ */
+public static int[] getMinDuration(int[][] timeA, int[][] timeB, int duration){
+   // Sort both time schedules
+   Comparator<int[]> comparator = new Comparator<int[]>(){
+     @Override
+     public int compare(final int[] a, final int[] b){
+      // Compare the end times
+      return a[1] - b[1];
+   };
+
+   Arrays.sort(timeA, comparator);
+   Arrays.sort(timeB, comparator);
+
+
 }
 
 function getMinDuration(timeA, timeB, duration){

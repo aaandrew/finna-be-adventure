@@ -18,7 +18,7 @@ public String countAndSay(int n){
 		int begin = 0, len = prev.length();
 		for(int j=1; j<=len; j++){
 			if(j == len || prev.charAt(j) != prev.charAt(begin)){
-					// (j-begin) count, (begin) say
+				// (j-begin) count, (begin) say
 				next.append(j-begin).append(prev.charAt(begin));
 				begin = j;
 			}
