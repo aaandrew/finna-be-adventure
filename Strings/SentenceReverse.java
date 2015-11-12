@@ -1,0 +1,32 @@
+// Pramp
+// TODO try it with space
+
+// Reverse all letters, then reverse each word
+// Time: O(n)
+// Space: O(1)
+public static void swapWords(char[] words){
+	// Reverse all letters
+	for(int i=0; i<words.length/2; i++){
+		char temp = words[i];
+		words[i] = words[words.length-1-i];
+		words[words.length-1-i] = temp;
+	}
+	for(int i=0; i<words.length; i++){
+		int space = i;
+		// Find space
+		for(;space<words.length; space++){
+			if(words[space] == ' ') break;
+		}
+		// Reverse i until space
+		for(int s=i, e=space-1;s < e; s++, e--){
+			char temp = words[s];
+			words[s] = words[e];
+			words[e] = temp;
+		}
+		// Move i forward to start of next word
+		i = space;
+		while(i < words.length && words[i] != ' '){
+			i++;
+		}
+	}
+}
