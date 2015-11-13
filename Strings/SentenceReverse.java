@@ -4,7 +4,7 @@
 // Reverse all letters, then reverse each word
 // Time: O(n)
 // Space: O(1)
-public static void swapWords(char[] words){
+public static void reverseWords(char[] words){
 	// Reverse all letters
 	for(int i=0; i<words.length/2; i++){
 		char temp = words[i];
@@ -28,5 +28,26 @@ public static void swapWords(char[] words){
 		while(i < words.length && words[i] != ' '){
 			i++;
 		}
+	}
+}
+
+
+public static void reverseWords(char[] words){
+	// Reverse all characters
+	mirrorReverse(words, 0, words.length-1);
+
+	// Reverse characters of each word
+	for(int i=0; i<words.length; i++){
+		if(words[i] == )
+	}
+
+}
+
+public static void mirrorReverse(char[] words, int start, int end){
+	while(start < end){
+		char temp = arr[start];
+		arr[start] = arr[end];
+		arr[end] = temp;
+		start++; end--;
 	}
 }
