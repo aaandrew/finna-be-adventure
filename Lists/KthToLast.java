@@ -60,3 +60,27 @@ public static ListNode kthToLast(ListNode head, int k){
 	return slow;
 }
 
+// Recursive
+// Time: O(n)
+// Space: O(1)
+public static ListNode kthToLast(ListNode head, int k){
+	return kthToLast(head, k, new Wrapper(0));
+}
+
+public static ListNode kthToLast(ListNode head, int k, Wrapper wrapper){
+	if(head == null) return null;
+
+	ListNode node = kthToLast(head.next, k, wrapper);
+	wrapper.value++;
+	if(wrapper.value == k){
+		return head;
+	}
+	return node;
+}
+
+class Wrapper {
+	int value;
+	public Wrapper(int data){
+		value = data;
+	}
+}
