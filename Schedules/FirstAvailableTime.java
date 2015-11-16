@@ -12,7 +12,7 @@ public static int[] firstTimeAvailable(int[][] timeA, int[][] timeB, int duratio
       @Override
       public int compare(int[] a, int[] b){
       // Compare the end times
-         return a[1] -b[1];
+         return a[1] - b[1];
       }
    };
    // Sort both arrays

@@ -32,6 +32,17 @@ public class Solution {
 		return root;
 	}
 
+	// Recursive
+	// Time: O(n)
+	// Space: O(n)
+	public TreeNode invertTree(TreeNode root){
+		if(root == null) return null;
+		TreeNode left = root.left;
+		root.left = invertTree(root.right);
+		root.right = invertTree(left);
+		return root;
+	}
+
 	// Iterative DFS
 	public TreeNode invertTree(TreeNode root) {
 		if(root == null) return null;
