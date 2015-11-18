@@ -7,18 +7,20 @@
  * [-1,0,2] => 2
  */
 
+
+
 public static int magicIndex(int[] arr){
-	int low = 0;
-	int high = arr.length-1;
-	while(low<=high){
-		int mid = (high-low)/2 + low;
-		if(arr[mid] == mid){
+	int start = 0, end = arr.length-1;
+	while(start <= end){
+		int mid = (end-start)/2 + start;
+		if(arr[mid] == start){
 			return mid;
-		}else if(arr[mid] < mid){
-			low = mid+1;
+		}else if(mid < arr[mid]){
+			end = mid - 1;
 		}else{
-			high = mid;
+			start = mid + 1;
 		}
 	}
 	return -1;
 }
+
