@@ -1,5 +1,8 @@
 /* Quickselect Algorithm
- *
+ * Based on 0 index
+ * Example: {1,2,3,4,5,6}
+ * k = 5 => 6
+ * k = 0 => 1
  */
 
 // Time: O(n) expected, O(n^2) worst
