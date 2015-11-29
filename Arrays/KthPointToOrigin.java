@@ -2,6 +2,25 @@
  *
  */
 
+// Kth closest point to origin
+// 1. Calculate all distances from origin to point
+// 2. quickselect all distances[] with k
+
+// Quickselect
+// 1. set left = 0, right = arr.length-1
+// 2. while left <= right
+// 	1. Get mid, and pivot = partition(left, right, mid)
+//  2. if pivot == k: return arr[pivot]
+//  3. if pivot < k: left = pivot+1, else: right = pivot-1
+// 3. return null
+
+// Partition
+// 1. storeIndex = left, pivotVal = arr[pivot]
+// 2. for i=left to right
+// 	1. if i.distance < pivotVal: swap(i, storeIndex++)
+// 3. swap(right, storeInde)
+// 4. return storeIndex 
+
 // Time: O(n) expected, O(n^2) worst (Quickselect)
 // Space: O(1)
 public static Point kthClosestPointToOrigin(Point[] arr, int k){

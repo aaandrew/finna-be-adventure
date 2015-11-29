@@ -46,6 +46,8 @@ public void backtrack(List<String> list, String string, int left, int right){
 
 
 // Dynamic Programming
+// Time: O(2^n)
+// Space: O(n)
 public List<String> generateParenthesis(int n){
   List<List<String>> allLists = new ArrayList<List<String>>();
   allLists.add(Collections.singletonList(""));

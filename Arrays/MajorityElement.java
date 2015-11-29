@@ -13,8 +13,8 @@
 // If the counter is not 0, we increment or decrement the counter based on whether x is the current candidate.
 // After one pass, the current candidate is the majority element.
 public int majorityElement(int[] num) {
-	int index = 0;
-	for(int i=1, count=1; i<num.length; i++){
+	int index = 0, count = 1;
+	for(int i=1; i<num.length; i++){
 		if(num[i] == num[index])
 			count++;
 		else
