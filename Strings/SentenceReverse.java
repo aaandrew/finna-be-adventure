@@ -30,20 +30,25 @@ public static void reverseWords(char[] words){
 		}
 	}
 }
-
-
 public static void reverseWords(char[] words){
 	// Reverse all characters
-	mirrorReverse(words, 0, words.length-1);
+	reverse(words, 0, words.length-1);
 
 	// Reverse characters of each word
+	int start = -1;
 	for(int i=0; i<words.length; i++){
-		if(words[i] == )
+		if(words[i] == ' ' && start != -1){
+			reverse(words, start, i-1);
+			start = -1;
+		}else if(i == words.length-1){
+			reverse(words, start, i);
+		}else if(start == -1){
+			start = i;
+		}
 	}
-
 }
 
-public static void mirrorReverse(char[] words, int start, int end){
+public static void reverse(char[] arr, int start, int end){
 	while(start < end){
 		char temp = arr[start];
 		arr[start] = arr[end];
