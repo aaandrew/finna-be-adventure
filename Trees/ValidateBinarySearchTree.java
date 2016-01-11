@@ -4,6 +4,19 @@
  * Right subtree is strictly greater than node's key
  */
 
+// Using Integer objects
+// Time: O(n)
+// Space: O(logn)
+public boolean isValidBST(TreeNode root) {
+	return isValidBST(root, null, null);
+}
+
+public boolean isValidBST(TreeNode root, Integer min, Integer max){
+	if(root == null) return true;
+	if((min != null && root.val <= min) || (max != null && root.val >= max)) return false;
+	return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max);
+}
+
 // Using Max/Min
 public boolean isValidBST(TreeNode root) {
 	return helper(root, Long.MAX_VALUE, Long.MIN_VALUE);
