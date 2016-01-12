@@ -2,36 +2,21 @@
  * Return the inorder successor of a node
  */
 
-
-public static TreeNode getSuccessor(TreeNode node){
-	if(node == null) return null;
-	
-	if(node.right == null){
-		TreeNode parent = node.parent;
-		if(parent.left == node){
-			return parent;
-		}else{
-			return getSuccessorParent(parent);
+public static TreeNode inorderSuccessor(TreeNode root){
+	if(root == null) return root;
+	if(root.right != null){
+		// Get leftmost child
+		TreeNode curr = root.right;
+		while(curr.left != null){
+			curr = curr.left;
 		}
+		return curr;
 	}else{
-		TreeNode rightChild = node.right;
-         // Get leftmost
-		TreeNode p = rightChild;
-		while(p.left != null){
-			p = p.left;
+		// Return first node that is greater than current which means
+		// return the closest parent that has root's parent as a left child
+		while(root.parent != null && root.parent.right == root){
+			root = root.parent;
 		}
-		return p;
 	}
-}
-}
-
-public static TreeNode getSuccessorParent(TreeNode node){
-	if(node == null) return null;
-	
-	TreeNode parent = node.parent;
-	if(parent.left == node){
-		return parent;
-	}else{
-		return getSuccessorParent(parent);
-	}
+	return root;
 }
