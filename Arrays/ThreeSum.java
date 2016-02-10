@@ -29,3 +29,24 @@ public List<List<Integer>> threeSum(int[] num) {
 	}
 	return res;
 }
+
+
+// With Target
+// Time: O(n^2)
+// Space: O(1)
+public static boolean threeSum(int[] nums, int target){
+		if(nums == null) return false;
+		Arrays.sort(nums);
+		for(int i=0; i<nums.length-1; i++){
+			int n = target-nums[i], low = i+1, high = nums.length-1;
+			while(low < high){
+				if(nums[low] + nums[high] == n) return true;
+				if(nums[low] + nums[high] < n){
+					low++;
+				}else{
+					high--;
+				}
+			}
+		}
+		return false;
+	}

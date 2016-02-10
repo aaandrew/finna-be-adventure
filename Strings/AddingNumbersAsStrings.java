@@ -1,27 +1,30 @@
+// Big Integer or add numbres as strings
 
 // Time: O(n)
 // Space: O(n)
-public static String add(String s1, String s2) {
-  String result = "";
-  int carry = 0, d1, d2;
-  int length = Math.max(s1.length(), s2.length());
-  for (int i = 0; i < length; i++) {
-    d1 = val(s1, i);
-    d2 = val(s2, i);
-    int dsum = d1 + d2 + carry;
-    result = (dsum % 10) + result;
-    carry = dsum / 10;
-  }
-  if (carry > 0) {
-    result = carry + result;
-  }
-  return result;
-}
+public static String bigAdd(String a, String b) {
+  if(a == null && b == null) return null;
+  if(a == null || a.isEmpty()) return b;
+  if(b == null || b.isEmpty()) return a;
 
-private static int val(String s, int i) {
-  if (i >= s.length()) {
-    return 0;
-  } else {
-    return Character.getNumericValue(s.charAt(s.length() - i - 1));
+  StringBuilder sb = new StringBuilder();
+  int carry = 0;
+  int alength =  a.length(), blength = b.length();
+  int length = Math.max(alength, blength);
+
+  for(int i=0; i<length; i++){
+    int adigit = (i<alength) ? a.charAt(alength-i-1) - '0' : 0;
+    int bdigit = (i<blength) ? b.charAt(blength-i-1) - '0' : 0;
+    int sum = adigit + bdigit + carry;
+
+    sb.append(sum % 10);
+    carry = sum / 10;
   }
+
+    // Check carry
+  if(carry > 0){
+    sb.append(carry);
+  }
+
+  return sb.reverse().toString();
 }
